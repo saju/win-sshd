@@ -2,8 +2,8 @@
 #include <string.h>
 #include "log.h"
 
-#define EPSILON_AGENT "EpsilonAgent"
-#define EPSILON_AGENT_NICE "\"Epsilon Secure Shell Agent\""
+#define SSHD_BANNER "Win32SSHD"
+#define SSHD_BANNER_NICE "\"Win32 Secure Shell Server\""
 
 void usage() {
     fprintf(stderr, "Please specify one of -install, -uninstall");
@@ -13,7 +13,7 @@ int main(int argc, char **argv) {
     if (argc < 2) 
 		usage();
     if (!strcmp(argv[1], "-install")) {
-		printf("%s will now be installed as a service\n", EPSILON_AGENT_NICE);
+		printf("%s will now be installed as a service\n", SSHD_BANNER_NICE);
 		if (!install_service()) {
 	    fprintf(stderr, "Service installation failed !\n");
 	    exit(1);
@@ -22,7 +22,7 @@ int main(int argc, char **argv) {
 			exit(0);
 		}
     } else if (!strcmp(argv[1], "-uninstall")) {
-		printf("%s will now be uninstalled\n", EPSILON_AGENT_NICE);
+		printf("%s will now be uninstalled\n", SSHD_BANNER_NICE);
 		if (!uninstall_service()) {
 			fprintf(stderr, "Service uninstall failed !\n");
 			exit(1);
@@ -54,7 +54,7 @@ int install_service() {
     }
 	
     sprintf(srv_cmd, "\"%s\" -start", program);
-    service = CreateService(scmgr, EPSILON_AGENT, EPSILON_AGENT_NICE, SERVICE_ALL_ACCESS, 
+    service = CreateService(scmgr, SSHD_BANNER, SSHD_BANNER_NICE, SERVICE_ALL_ACCESS, 
 							SERVICE_WIN32_OWN_PROCESS, SERVICE_AUTO_START, SERVICE_ERROR_NORMAL,
 							srv_cmd, NULL, NULL, NULL, NULL, NULL);
     if (!service) {

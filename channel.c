@@ -163,7 +163,7 @@ void _xfr_data(session *s, channel *ch) {
 	/* XXX:  ideally we should read upto pkt_size bytes and send the data 
 	   over to client, but that would be deemed 'slow' or 'unresponsive'.
 	   We really have to treat this session as if this were an interactive
-	   session - epsilon must send a smaller window size not Zero
+	   session - remote must send a smaller window size not Zero
 	   
 	   The amount of data to be read is a f(pkt_size, window_sz, max_payload_sz);
 	   The pkt_size and window_sz can be updated OOB by the client

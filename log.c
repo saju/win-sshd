@@ -12,7 +12,7 @@ int debug = 0;
 int glevel = INFO_L;
 
 int log_init(char *lfile) {
-	/* open a logfile in the EpsilonAgent/log dir */
+	/* open a logfile in the log dir */
 	logfd = fopen(lfile, "a+");
 	if (logfd == NULL) {
 		fprintf(stderr, "Failed to open %s. Error is %s\n", lfile, strerror(errno));

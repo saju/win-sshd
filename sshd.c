@@ -10,8 +10,8 @@
 #define RSA_PUBKEY "rsa_key.pub"
 #define RSA_PRIVKEY "rsa_key.prv"
 
-#define SERVICE_NAME "Epsilon SSH Service"
-#define SERVICE_DESC "An ssh-2.0 sftp & exec service from Idea Device. Please contact support@ideadevice.com for more information"
+#define SERVICE_NAME "Win32-SSH Service"
+#define SERVICE_DESC "An ssh-2.0 sftp & exec service"
 
 ssh_server *srvr_ctx;
  
